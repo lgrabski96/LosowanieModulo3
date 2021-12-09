@@ -4,6 +4,8 @@ namespace Losowanie
 {
     class Program
     {
+        public int[] generatedRandomValues;
+
         Cast FirstNumber = new ("PierwszaLiczba", 0);
         Cast SecondNumber = new ("DrugaLiczba", 0);
         Cast ThirdNumber = new ("TrzeciaLiczba", 0);
@@ -11,18 +13,20 @@ namespace Losowanie
         static void Main(string[] args)
         {
             Program RandomCast = new Program ();
+
+            RandomCast.FirstNumber.SetRandomValue();
+            RandomCast.SecondNumber.SetRandomValue();
+            RandomCast.ThirdNumber.SetRandomValue();
+
+            RandomCast.PrintRandomValuesToConsole(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber);
+
             do
             {
-                RandomCast.FirstNumber.SetRandomValue();
-                RandomCast.SecondNumber.SetRandomValue();
+                RandomCast.FirstNumber.value = RandomCast.SecondNumber.value;
+                RandomCast.SecondNumber.value = RandomCast.ThirdNumber.value;
                 RandomCast.ThirdNumber.SetRandomValue();
-                
-                if (!RandomCast.CheckIfDevidableBy3(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber))
-                {
-                    RandomCast.PrintRandomValuesToConsole(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber);
-                    Console.WriteLine($" Jest równa: {RandomCast.Sum(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber)} i NIE jest podzielna przez 3.");
-                    Console.WriteLine("======================");
-                }
+
+                Console.WriteLine($"{RandomCast.ThirdNumber.value}");
 
             } while (!RandomCast.CheckIfDevidableBy3(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber));
 
@@ -30,9 +34,9 @@ namespace Losowanie
         }
         private void PrintRandomValuesToConsole(Cast Input1, Cast Input2, Cast Input3)
         {
-            Console.WriteLine($"{Input1.name} : {Input1.value} ");
-            Console.WriteLine($"{Input2.name} : {Input2.value} ");
-            Console.WriteLine($"{Input3.name} : {Input3.value} ");
+            Console.WriteLine($"{Input1.value} ");
+            Console.WriteLine($"{Input2.value} ");
+            Console.WriteLine($"{Input3.value} ");
         }
         private void PrintToConsole(Cast Input1, Cast Input2, Cast Input3)
         {
@@ -43,6 +47,7 @@ namespace Losowanie
 
         public int Sum(Cast Input1, Cast Input2, Cast Input3)
         {
+
             return Input1.value + Input2.value + Input3.value;
         }
 

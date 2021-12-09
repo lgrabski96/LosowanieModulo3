@@ -4,11 +4,9 @@ namespace Losowanie
 {
     class Program
     {
-        public int[] generatedRandomValues;
-
-        Cast FirstNumber = new ("PierwszaLiczba", 0);
-        Cast SecondNumber = new ("DrugaLiczba", 0);
-        Cast ThirdNumber = new ("TrzeciaLiczba", 0);
+        readonly Cast FirstNumber = new ("PierwszaLiczba", 0);
+        readonly Cast SecondNumber = new ("DrugaLiczba", 0);
+        readonly Cast ThirdNumber = new ("TrzeciaLiczba", 0);
 
         static void Main(string[] args)
         {
@@ -45,7 +43,7 @@ namespace Losowanie
             Console.WriteLine($"Jest równa: {Sum(Input1, Input2, Input3)} i jest podzielna przez 3.");
         }
 
-        public int Sum(Cast Input1, Cast Input2, Cast Input3)
+        static public int Sum(Cast Input1, Cast Input2, Cast Input3)
         {
 
             return Input1.value + Input2.value + Input3.value;

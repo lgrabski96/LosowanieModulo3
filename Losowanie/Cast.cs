@@ -3,7 +3,7 @@
 public class Cast
 {
     private const int castMin = 1;
-    private const int castMax = 20;
+    private const int castMax = 19;
     public int value { get; set; }
     public string name { get; set; }
 
@@ -22,7 +22,7 @@ public class Cast
 
     public void SetRandomValue()
     {
-        int _randomValue = RandomNumber(castMin, castMax);
+        int _randomValue = RandomNumber(castMin, castMax+1);
         this.value = _randomValue;
     }
 }

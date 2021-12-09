@@ -38,7 +38,7 @@ namespace Losowanie
         {
             Console.WriteLine("Suma 3 ostatnich liczb :");
             PrintRandomValuesToConsole(Input1, Input2, Input3);
-            Console.WriteLine($" Jest równa: {Sum(Input1, Input2, Input3)} i jest podzielna przez 3.");
+            Console.WriteLine($"Jest równa: {Sum(Input1, Input2, Input3)} i jest podzielna przez 3.");
         }
 
         public int Sum(Cast Input1, Cast Input2, Cast Input3)

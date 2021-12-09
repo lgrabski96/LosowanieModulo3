@@ -20,7 +20,7 @@ namespace Losowanie
                 if (!RandomCast.CheckIfDevidableBy3(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber))
                 {
                     RandomCast.PrintRandomValuesToConsole(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber);
-                    Console.WriteLine($" Jest równa: {RandomCast.Sum(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber)} i NIE podzielna przez 3.");
+                    Console.WriteLine($" Jest równa: {RandomCast.Sum(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber)} i NIE jest podzielna przez 3.");
                     Console.WriteLine("======================");
                 }
 

@@ -4,9 +4,9 @@ namespace Losowanie
 {
     class Program
     {
-        Cast FirstNumber = new Cast("PierwszaLiczba", 0);
-        Cast SecondNumber = new Cast("DrugaLiczba", 0);
-        Cast ThirdNumber = new Cast("TrzeciaLiczba", 0);
+        Cast FirstNumber = new ("PierwszaLiczba", 0);
+        Cast SecondNumber = new ("DrugaLiczba", 0);
+        Cast ThirdNumber = new ("TrzeciaLiczba", 0);
 
         static void Main(string[] args)
         {
@@ -16,8 +16,13 @@ namespace Losowanie
                 RandomCast.FirstNumber.SetRandomValue();
                 RandomCast.SecondNumber.SetRandomValue();
                 RandomCast.ThirdNumber.SetRandomValue();
-                RandomCast.PrintRandomValuesToConsole(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber);
-                Console.WriteLine("======================");
+                
+                if (!RandomCast.CheckIfDevidableBy3(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber))
+                {
+                    RandomCast.PrintRandomValuesToConsole(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber);
+                    Console.WriteLine($" Jest równa: {RandomCast.Sum(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber)} i NIE podzielna przez 3.");
+                    Console.WriteLine("======================");
+                }
 
             } while (!RandomCast.CheckIfDevidableBy3(RandomCast.FirstNumber, RandomCast.SecondNumber, RandomCast.ThirdNumber));
 
@@ -33,7 +38,7 @@ namespace Losowanie
         {
             Console.WriteLine("Suma 3 ostatnich liczb :");
             PrintRandomValuesToConsole(Input1, Input2, Input3);
-            Console.WriteLine($" Jest równa: {Sum(Input1, Input2, Input3)} i podzielna przez 3.");
+            Console.WriteLine($" Jest równa: {Sum(Input1, Input2, Input3)} i jest podzielna przez 3.");
         }
 
         public int Sum(Cast Input1, Cast Input2, Cast Input3)
